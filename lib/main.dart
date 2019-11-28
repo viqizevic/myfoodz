@@ -43,6 +43,22 @@ class _MyAppState extends State<MyApp> {
         }
         return true;
       }).toList();
+
+      Set<String> filteredCategories = _availableMeals
+          .map(
+        (meal) => meal.categories,
+      )
+          .fold(
+        List<String>(),
+        (list, categories) {
+          list.addAll(categories);
+          return list;
+        },
+      ).toSet();
+
+      _availableCategories = DUMMY_CATEGORIES
+          .where((category) => filteredCategories.contains(category.id))
+          .toList();
     });
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myfoodz/models/category.dart';
+import 'package:myfoodz/models/meal.dart';
 import 'package:myfoodz/screens/categories_screen.dart';
 import 'package:myfoodz/screens/favorites_screen.dart';
 import 'package:myfoodz/widgets/main_drawer.dart';
@@ -8,8 +9,9 @@ class TabsScreen extends StatefulWidget {
   static const String id = 'main_tabs';
 
   final List<Category> availableCategories;
+  final List<Meal> favoriteMeals;
 
-  TabsScreen(this.availableCategories);
+  TabsScreen(this.availableCategories, this.favoriteMeals);
 
   @override
   _TabsScreenState createState() => _TabsScreenState();
@@ -26,7 +28,7 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'All Categories',
       },
       {
-        'page': FavoritesScreen(),
+        'page': FavoritesScreen(widget.favoriteMeals),
         'title': 'Your Favorites',
       },
     ];

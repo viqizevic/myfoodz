@@ -35,7 +35,7 @@ class _MealsScreenState extends State<MealsScreen> {
 
   void _removeMeal(mealId) {
     setState(() {
-      displayedMeals.removeWhere((meal) => meal.id == mealId);
+      //displayedMeals.removeWhere((meal) => meal.id == mealId);
     });
   }
 
@@ -55,7 +55,6 @@ class _MealsScreenState extends State<MealsScreen> {
             duration: meal.duration,
             complexity: meal.complexity,
             affordability: meal.affordability,
-            removeItemCallback: _removeMeal,
           );
         },
         itemCount: displayedMeals.length,

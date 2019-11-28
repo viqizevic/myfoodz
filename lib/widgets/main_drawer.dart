@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myfoodz/screens/filters_screen.dart';
+import 'package:myfoodz/screens/tabs_screen.dart';
 
 class MainDrawer extends StatelessWidget {
-  Widget buildDrawerListTile(String title, IconData icon) {
+  Widget buildDrawerListTile(
+      String title, IconData icon, Function onTapCallback) {
     return ListTile(
       leading: Icon(
         icon,
@@ -15,9 +18,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {
-        // ...
-      },
+      onTap: onTapCallback,
     );
   }
 
@@ -46,10 +47,16 @@ class MainDrawer extends StatelessWidget {
           buildDrawerListTile(
             'Meals',
             Icons.restaurant,
+            () {
+              Navigator.of(context).pushReplacementNamed(TabsScreen.id);
+            },
           ),
           buildDrawerListTile(
             'Filters',
             Icons.settings,
+            () {
+              Navigator.of(context).pushReplacementNamed(FiltersScreen.id);
+            },
           ),
         ],
       ),

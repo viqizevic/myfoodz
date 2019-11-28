@@ -4,6 +4,8 @@ import 'package:myfoodz/screens/favorites_screen.dart';
 import 'package:myfoodz/widgets/main_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
+  static const String id = 'main_tabs';
+
   @override
   _TabsScreenState createState() => _TabsScreenState();
 }
